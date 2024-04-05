@@ -9,7 +9,7 @@ class Wallet:
         self.timestamp = datetime.datetime.now()
         self.balance = 1
         self.wallet_type = wallet_type
-
+   
     def get_wallet_addr(self):
         return self.wallet_addr
     
@@ -28,5 +28,5 @@ class Wallet:
             return "This wallet cannot recieve votes, it must be a candidate type wallet"
         self.balance = self.balance + recieve_amount
 
-    def __del__(self):
-        return "Vote Cast, Destroying Wallet"
+    
+        
