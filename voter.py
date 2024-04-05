@@ -11,7 +11,7 @@ class Voter:
 
     def get_voter_info(self):
         return {"Name": self.name, "Wallet Address": self.wallet.get_wallet_addr(), "Verification Status": self.verification_status}
-    
+        
     def cast_vote(self, candidate: Candidate):
         if type(candidate) != Candidate:
             return "Can only cast vote to candidate..."
@@ -22,3 +22,4 @@ class Voter:
         else:
             candidate.wallet.recieve(self.wallet.withdraw())
             return f"1 vote token transferred to {candidate.get_info()} from {self.get_voter_info()}"
+            

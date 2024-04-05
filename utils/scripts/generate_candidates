@@ -1,0 +1,5 @@
+candidates = {"Anuraj":"Party C", "Alex":"Party B", "Saahil": "Party C"}
+
+with open("utils/verified_candidates.txt","w") as f:
+    for candidate in candidates:
+        f.write(str(candidate+":"+candidates[candidate]+"\n"))
