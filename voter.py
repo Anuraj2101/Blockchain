@@ -13,7 +13,7 @@ class Voter:
         return {"Name": self.name, "Wallet Address": self.wallet.get_wallet_addr(), "Verification Status": self.verification_status}
     
     def cast_vote(self, candidate: Candidate):
-        if candidate != type(Candidate):
+        if type(candidate) != Candidate:
             return "Can only cast vote to candidate..."
         if self.wallet.get_balance() <= 0 or self.wallet.get_balance() > 1:
             return "Invalid wallet balance: Vote has already been cast or wallet balance exceeds 1"
@@ -21,4 +21,4 @@ class Voter:
             return "Unverified Voter... Reject vote"
         else:
             candidate.wallet.recieve(self.wallet.withdraw())
-            return f"1 vote token transffered to {candidate.get_info()} from {self.get_voter_info()}"
+            return f"1 vote token transferred to {candidate.get_info()} from {self.get_voter_info()}"
