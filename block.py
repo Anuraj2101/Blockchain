@@ -22,7 +22,8 @@ class Blockchain:
         self.stakeholders = {}
     
     def create_genesis_block(self):
-        return Block(0, "Genesis Block", "0")
+        voter_data = {}
+        return Block(0, voter_data, "0")
 
     def get_latest_block(self):
         return self.chain[-1]
@@ -30,7 +31,7 @@ class Blockchain:
     def add_block(self, data):
         # new_block.previous_hash = self.get_latest_block().hash
         # new_block.hash = new_block.calculate_hash()
-        self.chain.append(Block(len(self.chain)-1, data, self.get_latest_block().hash))
+        self.chain.append(Block(len(self.chain), data, self.get_latest_block().hash))
 
     def get_chain(self):
         for block in self.chain:
