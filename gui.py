@@ -32,7 +32,13 @@ def create_obj_array(entity_dict, entity_type):
                 temp_cand = Candidate(key, entity_dict[key])
                 obj_lst.append(temp_cand)
     return obj_lst
-     
+
+def count_votes(candidates):
+    filtered = []
+    for candidate in candidates:
+        filtered.append(candidate.get_info()["Candidate Name"] + ":" + str(candidate.get_info()["Votes"]))
+    return " ".join(filtered)
+
 class VotingSystemUI:
     def __init__(self, master, candidates, voters):
         self.master = master
@@ -64,6 +70,9 @@ class VotingSystemUI:
 
         self.vote_button = tk.Button(master, text="Vote", command=self.cast_vote)
         self.vote_button.pack(pady=10)
+        self.vote_counter = tk.StringVar(value=count_votes(self.candidates))
+        self.vote_count_label = tk.Label(master, textvariable=self.vote_counter).pack()
+        
 
     def cast_vote(self):
         name = self.name_entry.get()
@@ -91,5 +100,8 @@ class VotingSystemUI:
             print("Current Chain:")
             self.bc1.get_chain()
             print("Voter Wallet Balance:", voter.wallet.balance)
+            print(count_votes(self.candidates))
+            self.vote_counter.set(count_votes(self.candidates))
         else:
             messagebox.showerror("Error", vote)
+    
