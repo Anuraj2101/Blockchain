@@ -1,6 +1,3 @@
-from block import Block, Blockchain
-from voter import Voter
-from candidate import Candidate
 from gui import VotingSystemUI as GUI
 import tkinter as tk
 
