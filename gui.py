@@ -93,8 +93,3 @@ class VotingSystemUI:
             print("Voter Wallet Balance:", voter.wallet.balance)
         else:
             messagebox.showerror("Error", vote)
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = VotingSystemUI(root)
-    root.mainloop()
