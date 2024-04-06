@@ -1,5 +1,16 @@
+def pull_candidates():
+    cand_dict={}
+    with open("utils/verified_candidates.txt", "r") as f:
+        lines = f.read().splitlines()
+        for line in lines:
+            cand_dict[line.split(":")[0]] = line.split(":")[1]
+    
+    return cand_dict
+        
 candidates = {"Anuraj":"Party C", "Alex":"Party B", "Saahil": "Party C"}
 
 with open("utils/verified_candidates.txt","w") as f:
     for candidate in candidates:
         f.write(str(candidate+":"+candidates[candidate]+"\n"))
+
+print(list(pull_candidates()))

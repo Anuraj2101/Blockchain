@@ -8,4 +8,4 @@ class Candidate:
         self.wallet = Wallet("Candidate")
     
     def get_info(self):
-        return {"Candidate Name:": self.name, "Party": self.party, "Wallet": self.wallet.get_wallet_addr()}
+        return {"Candidate Name": self.name, "Party": self.party, "Wallet": self.wallet.get_wallet_addr()}
